@@ -1,0 +1,62 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.ask.menu"
+        minSdk 26
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation libraries.room_ktx
+    implementation libraries.room_runtime
+    kapt libraries.room_compiler
+    implementation libraries.okhttp3_logging_interceptor
+    implementation libraries.retrofit2_converter_scalars
+    implementation libraries.swiperefreshlayout
+    implementation libraries.cicerone
+    implementation libraries.dagger
+    kapt libraries.dagger_compiler
+    implementation libraries.retrofit
+    implementation libraries.retrofit_converter_gson
+    implementation libraries.coroutines_core
+    implementation libraries.coroutines_android
+    implementation libraries.lifecycle_viewmodel
+    implementation libraries.recyclerview
+    implementation libraries.core_ktx
+    implementation libraries.appcompat
+    implementation libraries.google_material
+    implementation libraries.constraintlayout
+    implementation libraries.legacy_support
+    implementation libraries.kotlin_stdlib
+    implementation libraries.fragment_ktx
+    testImplementation libraries.junit
+    androidTestImplementation libraries.ext_junit
+}
